@@ -5,7 +5,8 @@
       "src": "application.py",
       "use": "@vercel/python",
       "config": { 
-        "maxLambdaSize": "50mb"  # Explicit limit
+        "maxLambdaSize": "50mb" 
+        "includeFiles": ["best.onnx"]  
       }
     },
     {

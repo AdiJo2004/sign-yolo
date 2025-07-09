@@ -3,7 +3,8 @@ flask_wtf
 pyttsx3
 thread6
 wtforms
-opencv-python
-pillow
-onnxruntime
+onnxruntime>=1.10.0
+opencv-python-headless>=4.5.0
+Pillow>=9.0.0
+numpy>=1.20.0
 git+https://github.com/trainyolo/YOLO-ONNX.git

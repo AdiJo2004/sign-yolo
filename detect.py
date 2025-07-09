@@ -11,8 +11,16 @@ class YOLOv8:
         self.input_name = self.session.get_inputs()[0].name
         self.output_names = [output.name for output in self.session.get_outputs()]
 
+MODEL_URL = "https://drive.google.com/file/d/19ZhROPCegDeVDFPnlG72GWKGOE0FTJlG/view?usp=sharing"  # REPLACE WITH YOUR ACTUAL URL
+model_path = "best.onnx"
+if not os.path.exists(model_path):
+    print("Downloading model...")
+    r = requests.get(MODEL_URL)
+    with open(model_path, 'wb') as f:
+        f.write(r.content)
+
 # Initialize detector with original variable names
-yolov8_detector = YOLOv8(os.path.join(os.path.dirname(__file__), 'best.onnx'))
+yolov8_detector = YOLOv8(model_path)
 classNames = [chr(i) for i in range(65, 91)] 
 detection_sign = '' 
 
